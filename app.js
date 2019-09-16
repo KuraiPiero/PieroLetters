@@ -18,7 +18,10 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-require('dotenv/config')
+const bodyParser = require('body-parser')
+require('dotenv/config');
+app.use(bodyParser.json())
+
 
 //*Import Routes
 const stockRoute = require('./routes/stock');
@@ -39,9 +42,10 @@ mongoose.connect(
         useNewUrlParser: true,
         useUnifiedTopology: true
     },
-    () => console.log('Connected to Data Base')
+    () => console.log('Connected to Data Base'),
+
 );
 
 
 //?Server Listener
-app.listen(9000)
+app.listen(9000);
