@@ -43,16 +43,10 @@ router.get('/', async (req, res) => {
 })
 
 
-/*
+
 //Ver la existencia
-
 //Cargar un libro
-
-
-
-
 //Buscar un libro en especifico
-
 router.get('/:LibroId', async (req, res) => {
     try {
         const Libro = await Stock.findById(req.params.LibroId);
@@ -62,11 +56,8 @@ router.get('/:LibroId', async (req, res) => {
             message: err
         })
     }
-
 })
-
 //Borrar un libro
-
 router.delete('/:LibroId', async (req, res) => {
     try {
         const removerLibro = await Stock.remove({
@@ -78,11 +69,8 @@ router.delete('/:LibroId', async (req, res) => {
             message: err
         })
     }
-
 })
-
 //Actualizar un libro
-
 router.patch('/:LibroId', async (req, res) => {
     const {
         Titulo,
@@ -95,7 +83,7 @@ router.patch('/:LibroId', async (req, res) => {
         Precio,
         Formato,
         img,
-    } = :req.body;
+    } = req.body;
     try {
         const actualizarLibro = await Stock.updateOne({
             _id: req.params.LibroId
@@ -122,7 +110,7 @@ router.patch('/:LibroId', async (req, res) => {
 })
 
 
-*/
 
+module.exports = router;
 
 module.exports = router;
