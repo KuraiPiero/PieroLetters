@@ -16,11 +16,16 @@ import
 You can initialize this repository with code from a Subversion, Mercurial, or TFS project.**/
 
 const express = require('express');
-const mongoose = require('mongoose');
 const app = express();
-const bodyParser = require('body-parser')
-require('dotenv/config');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+app.use(cors());
 app.use(bodyParser.json())
+require('dotenv/config');
+
+
+
 
 
 //*Import Routes
@@ -42,9 +47,9 @@ mongoose.connect(
         useNewUrlParser: true,
         useUnifiedTopology: true
     },
-    () => console.log('Connected to Data Base'),
-
-);
+    () => {
+        console.log("connect to DB");
+    })
 
 
 //?Server Listener
